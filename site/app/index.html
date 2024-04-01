@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MindfulBuddy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="..\node_modules\bootstrap\dist\css\font-awesome.css">
+    <link rel="stylesheet" href="..\node_modules\bootstrap\dist\css\bootstrap.min.css">
+
+    <link rel="icon" href="images/deer.png" type="image/gif" sizes="16x16">
+
+
+    <script src="..\node_modules\jquery\dist\jquery.js"></script>
+    <script src="..\node_modules\bootstrap\dist\js\bootstrap.min.js"></script>
+
+    <script src="..\node_modules\angular\angular.js"></script>
+    <script src="..\node_modules\angular-route\angular-route.js"></script>
+
+    <script src="app.js"></script>
+
+
+    <script type='text/javascript'>
+
+        $(document).ready(function () {
+            $("#contactus").on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+                        window.location.hash = hash;
+                    });
+                }
+            });
+
+
+            $("#myModal").on('show.bs.modal', function () {
+
+
+                $('#careerTitle').text(language.careerTitle);
+                $('#careerTitleDetail').text(language.careerTitleDetail);
+
+
+            });
+        });
+
+        $('.navbar-nav>li>a').on('click', function () {
+            $('.navbar-collapse').collapse('hide');
+
+
+        });
+
+
+    </script>
+
+</head>
+<body ng-app="myApp">
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" style="margin-left:20px">MindfulBuddy</a>
+        <a class="navbar-brand center-block"><span id="navSlogan">Someone to talk to or walk to whenever you need</span> <span
+                class="glyphicon glyphicon-ok"></span>
+        </a>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right" style="margin-right:10px;">
+
+            <!-- <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false"><span id="navD1">Services </span><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-header"><strong>Automation</strong></li>
+                    <li><a>CI/CD</a></li>
+                    <li><a>Infra automation</a></li>
+                    <li><a>Test automations</a></li>
+                    <li><a>Monitoring automations</a></li>
+
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header"><strong>Cybersecurity</strong></li>
+                    <li><a>ISO 27002</a></li>
+                    <li><a>Vulnerability Scanning</a></li>
+                    <li><a>Pentesting</a></li>
+                    <li><a>Attack Modelling</a></li>
+                    <li><a>Hardening</a></li>
+                    <li><a>Container security</a></li>
+
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header"><strong>DevSecOps</strong></li>
+                    <li><a>DevSecOps Architecture</a></li>
+                    <li><a>Security Automation</a></li>
+                    <li><a>Security Pipeline</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header"><strong>Cloud</strong></li>
+                    <li><a href="#!cost_cutting">Cost cutting & Budget control</a></li>
+                    <li><a>AWS</a></li>
+                    <li><a>Azuree</a></li>
+                    <li><a>GCP</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header"><strong>Development & PM</strong></li>
+                    <li><a>Project management</a></li>
+                    <li><a>Application developemnt</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header"><strong>Human Resourcing</strong></li>
+                    <li><a>Telant selection</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false"><span id="navD2">Technologies </span><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-header"><strong>Automation</strong></li>
+                    <li><a>Ansible</a></li>
+                    <li><a>Cloudformation</a></li>
+                    <li><a>Terraform</a></li>
+                    <li><a>Jenkins</a></li>
+                    <li><a>Docker</a></li>
+                    <li><a>Serverless</a></li>
+
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header"><strong>Cybersecurity</strong></li>
+                    <li><a>Vulnerability Scanning</a></li>
+                    <li><a>Compliance Check</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header"><strong>DevSecOps</strong></li>
+                    <li><a>Chef Inspec</a></li>
+                    <li><a>OWASP Zap</a></li>
+                    <li><a>SAST</a></li>
+                    <li><a>DAST</a></li>
+
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false"><span id="navD6"> Trainings</span> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-header"><strong>Training Packages</strong></li>
+                    <li><a >DevOps 101</a></li>
+                    <li><a >DevSecOps 102</a></li>
+                    <li><a >Containers 101</a></li>
+                    <li><a >Container Security 102</a></li>
+                    <li><a >AWS Fundemantals 101</a></li>
+                    <li><a >AWS Architechting 102</a></li>
+                    <li><a >AWS Security 103</a></li>
+                    <li><a >CICD 101</a></li>
+                    <li><a >CICD Advanced</a></li>
+                </ul>
+            </li>
+            <!-- <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false"><span id="navD3"> Products</span> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-header"><strong>Automation</strong></li>
+                    <li><a href="#!spikesite">CorpSeed</a></li>
+                    <li class="dropdown-header"><strong>Expertise</strong></li>
+                    <li><a href="#!expert">WiseExpert</a></li>
+                    <li class="dropdown-header"><strong>Cybersecurity</strong></li>
+                    <li><a href="#!phishaa">Phishaa</a></li>
+                </ul>
+            </li> -->
+            <!-- <li><a data-toggle="modal" data-target="#myModal" href="https://calendly.com/tarazansafak/30min?preview_source=et_card&month=2024-04"><span id="navD4">Career</span></a></li> --> -->
+
+            <!--            <li><a class="nav-link" href="#contact-us" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >Contact Us </a></li>-->
+            <li><a id="contactus" href="#contact-us"><span id="navD5">Book Time</span> </a></li>
+
+
+
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav> <!-- navbar--> -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center" id="careerTitle">Want to grow with us?</h4>
+            </div>
+            <div class="modal-body text-center">
+                <p><span id="careerTitleDetail">It's simple, just email us your CV, your interest and plans and let's do it!</span>
+                </p>
+
+                <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:MindfulBuddyinfo@gmail.com">
+                MindfulBuddyinfo@gmail.com</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</br>
+
+<div ng-view></div>
+
+<!--Google map-->
+<!-- <div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 200px;margin-top:25px">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2029.6758844044512!2d24.797930116335014!3d59.42180138169128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4692eb55d55f3afb%3A0x102b6ddb991c33d6!2s%C3%9Clemiste%20City!5e0!3m2!1sen!2see!4v1601041527168!5m2!1sen!2see"
+            width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+</div> -->
+<footer style="margin-left:20px; margin-right:20px">
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2024 MindfulBuddy.</p>
+</footer>
+
+</body>
+</html>

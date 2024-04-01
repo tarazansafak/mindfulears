@@ -1,0 +1,665 @@
+<!--<div id="myCarousel" class="carousel slide" data-ride="carousel"-->
+<!--     style=" width:100%;max-height: 400px; margin-top: 100px;">-->
+<!--    &lt;!&ndash; Indicators &ndash;&gt;-->
+<!--    <ol class="carousel-indicators">-->
+<!--        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+<!--        <li data-target="#myCarousel" data-slide-to="1"></li>-->
+<!--        <li data-target="#myCarousel" data-slide-to="2"></li>-->
+<!--    </ol>-->
+
+<!--    &lt;!&ndash; Wrapper for slides &ndash;&gt;-->
+<!--    <div class="carousel-inner">-->
+<!--        <div class="item active" class="center-block">-->
+<!--            <img src="images\security_pipeline.png" class="center-block" alt="Los Angeles"-->
+<!--                 style="width: 50%; margin: auto;">-->
+<!--            <div class="carousel-caption">-->
+<!--                <h3></h3>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="item">-->
+<!--            <div class="carousel-content">-->
+<!--                <div class="center-block" style="width:42.5%;">-->
+<!--                    <h1 class="center-block">-->
+<!--                        <span class="glyphicon glyphicon-ok"></span>-->
+<!--                        Mindfulears targets startups, small to mid size companies to help/guide them in their IT journey-->
+<!--                    </h1>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="item">-->
+<!--            <div class="carousel-content">-->
+<!--                <div class="center-block" style="width:42.5%;">-->
+<!--                    <h1 class="center-block">-->
+<!--                        <span class="glyphicon glyphicon-ok"></span>-->
+<!--                        Mindfulears targets startups, small to mid size companies to help/guide them in their IT journey-->
+<!--                    </h1>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Left and right controls &ndash;&gt;-->
+<!--    <a class="left carousel-control" href="/home#myCarousel" data-slide="prev">-->
+<!--        <span class="glyphicon glyphicon-chevron-left"></span>-->
+<!--        <span class="sr-only">Previous</span>-->
+<!--    </a>-->
+<!--    <a class="right carousel-control" href="/home#myCarousel" data-slide="next">-->
+<!--        <span class="glyphicon glyphicon-chevron-right"></span>-->
+<!--        <span class="sr-only">Next</span>-->
+<!--    </a>-->
+<!--</div>&lt;!&ndash; myCarousel &ndash;&gt;-->
+<head>
+    <link rel="stylesheet" type="text/css" href="..\node_modules\bootstrap\dist\css\font-awesome.css">
+
+
+    <script>
+
+
+
+
+        var language;
+
+
+        // localStorage.setItem('language', 'es')
+
+        function setLanguage('lang') {
+
+            // window.open("https://www.w3schools.com");
+
+            document.cookie = "lang="+lang +";path=/";
+
+            localStorage.setItem('language', getCookie('lang'));
+
+            console.log(getCookie('lang'));
+
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+
+        getLanguage();
+
+        function getLanguage() {
+            (getCookie('lang') == null) ? localStorage.setItem('language', 'tr') : false;
+            $.ajax({
+                url: 'languages\\' + localStorage.getItem('language') + '.json',
+                dataType: 'json', async: false, dataType: 'json',
+                success: function (lang) {
+                    language = lang
+                }
+            });
+
+
+            if (localStorage.getItem('language') == 'tr') {
+                document.getElementById("selectedLangFlag").src = "images\\tr.png";
+
+            } else if (localStorage.getItem('language') == 'en') {
+                document.getElementById("selectedLangFlag").src = "images\\en.png";
+            } else {
+                //  block of code to be executed if the condition1 is false and condition2 is false
+            }
+
+
+        }
+
+        // localStorage.setItem('language', 'tr')
+
+
+        $(document).ready(function () {
+            // $('#div1').text(language.date);
+            $('#homeSlogan').text(language.homeSlogan);
+            $('#homeSloganItem1').text(language.homeSloganItem1);
+            $('#homeSloganItem2').text(language.homeSloganItem2);
+            $('#homeSloganItem3').text(language.homeSloganItem3);
+
+            $('#homeCompany1').text(language.homeCompany1);
+            $('#homeCompanyDetails1').text(language.homeCompanyDetails1);
+            $('#homeCompany2').text(language.homeCompany2);
+            $('#homeCompanyDetails2').text(language.homeCompanyDetails2);
+            $('#homeCompany3').text(language.homeCompany3);
+            $('#homeCompanyDetails3').text(language.homeCompanyDetails3);
+
+            $('#homeCaption1').text(language.homeCaption1);
+            $('#homeCaptionDetails1').text(language.homeCaptionDetails1);
+
+            $('#homeTL1').text(language.homeTL1);
+            $('#homeTL2').text(language.homeTL2);
+            $('#homeTL3').text(language.homeTL3);
+            $('#homeTL4').text(language.homeTL4);
+
+            $('#homeTL41').text(language.homeTL41);
+            $('#homeTL42').text(language.homeTL42);
+            $('#homeTL43').text(language.homeTL43);
+            $('#homeTL44').text(language.homeTL44);
+            $('#homeTL45').text(language.homeTL45);
+
+            $('#homeTeamTitle').text(language.homeTeamTitle);
+
+            $('#contactInquiry').text(language.contactInquiry);
+
+            $('#navSlogan').text(language.navSlogan);
+
+            $('#navD1').text(language.navD1);
+            $('#navD2').text(language.navD2);
+            $('#navD3').text(language.navD3);
+            $('#navD4').text(language.navD4);
+            $('#navD6').text(language.navD6);
+            $('#navD5').text(language.navD5);
+
+
+        });
+
+    </script>
+
+</head>
+
+
+<div class="container col-xs-12" style="margin-top:150px; margin-bottom:75px;">
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <img class="img-rectangular center-block" src="images/deer.png" style="margin-top:-75px" width="65"
+                 height="65"></img>
+            <h1 class="text-center" id="homeSlogan">
+                <!--        <span class="glyphicon glyphicon-ok"></span>-->
+                Would you like to talk to somebody and share some toughts, ideas and even stressful situations? 
+                <br/>
+                <!-- Someone to exchange some ideas and get reflection on the topic? -->
+            </h1></div>
+        <div class="col-sm-3">
+        </div>
+    </div>
+
+
+    <!--    <a href="#" onclick="setLanguage('en')">English</a>-->
+    <!--    <a href="#" onclick="setLanguage('tr')">Turkish</a>-->
+    <!--    <div id="div1">naber</div>-->
+
+    <br>
+
+    <div class="row" style="margin-top:5px">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-5">
+            <h4 class="text-center-left">
+                <!--        <span class="glyphicon glyphicon-ok"></span>-->
+                <span class="glyphicon glyphicon-ok"/><span id="homeSloganItem1">
+                    Online call
+                </span>
+                </br>
+
+                <span class="glyphicon glyphicon-ok"/><span id="homeSloganItem2">
+                    In person meeting
+                </span>
+                </br>
+                <!--                <span class="glyphicon glyphicon-ok"/> Have future proof solutions </br>-->
+
+                <span class="glyphicon glyphicon-ok"/><span id="homeSloganItem3"> Exchanging and developing ideas
+                </span>
+                </br>
+                <!--                <span class="glyphicon glyphicon-ok"/> Better focus on your ideas </br>-->
+                <!--                <span class="glyphicon glyphicon-ok"/> Focus & run your business without headacke </br>-->
+            </h4>
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="row">-->
+<!--    <div class="col-sm-12 col-sm-offset-1">-->
+
+<!--        <div class="center-block" style="width:50%; margin-top:100px">-->
+<!--            <h1 class="center-block">-->
+<!--                &lt;!&ndash;        <span class="glyphicon glyphicon-ok"></span>&ndash;&gt;-->
+<!--                Mindfulears targets startups, small/mid size companies to guide them in their IT journey-->
+<!--            </h1>-->
+<!--            <h2 class="center-block">-->
+<!--                &lt;!&ndash;        <span class="glyphicon glyphicon-ok"></span>&ndash;&gt;-->
+<!--                Mindfulears targets startups, small/mid size companies to guide them in their IT journey-->
+<!--            </h2>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<div class="panel panel-default">
+    <div class="panel-body" style="margin-top:50px;margin-bottom:50px">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="col-lg-12">
+                    <img class="img-rectangular center-block" src="images/entre.png"
+                         alt="Generic placeholder image"
+                         width="300" height="170">
+                    <h3 class="text-center"><span id="homeCompany1">Entrepreneurs</span></h3>
+                    <p class="text-center" style="font-size:15px;font-family:Arial"><span id="homeCompanyDetails1">
+                        You have some idea and would like to develop and research together?</span></p>
+
+                    <!--                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+                </div><!-- /.col-lg-4 -->
+            </div>
+            <div class="col-sm-4">
+                <div class="col-lg-12">
+                    <img class="img-rectangular center-block" src="images/startup.jpg"
+                         alt="Generic placeholder image"
+                         width="300" height="170">
+                    <h3 class="text-center"><span id="homeCompany2">Personal matters</span></h3>
+                    <p class="text-center" style="font-size:15px;font-family:Arial"><span id="homeCompanyDetails2">
+                        
+                       
+
+                        You have some life-situation to reflect on and would like to be listened or peer support?
+
+                    </span></p>
+                    <!--                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+                </div><!-- /.col-lg-4 -->
+            </div>
+            <div class="col-sm-4 ">
+                <div class="col-lg-12">
+                    <img class="img-rectangular center-block" src="images/mid.jpg" alt="Generic placeholder image"
+                         width="300"
+                         height="170">
+                    <h3 class="text-center"><span id="homeCompany3">New to the Town?</span></h3>
+                    <p class="text-center" style="font-size:15px;font-family:Arial"><span id="homeCompanyDetails3"> You recently moved here and looking for some hint and tips?</span></p>
+                    <!--                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+                </div><!-- /.col-lg-4 -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h3 class="text-center-left" style="margin-top:25px">
+
+
+    <div class="container">
+        <div class="page-header">
+
+
+            <div class="row" style="margin-top:-50px;margin-bottom:20px">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4">
+                    <h2 class="text-center">
+                        <span id="homeCaption1">
+                        HOW DOES IT WORK?
+                        </span>
+                    </h2>
+                    <h4 class="text-center"><span class="glyphicon glyphicon-eur"> </span> <span
+                            id="homeCaptionDetails1">First initial 15 minutus of online chat is free
+                        of charge!</span>
+                    </h4>
+                    <h4 class="text-center"><span class="glyphicon glyphicon-chevron-down"> </span></h4>
+
+                </div>
+                <div class="col-sm-4">
+                </div>
+            </div>
+
+
+        </div>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-badge"><i class="glyphicon glyphicon-hand-left"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading text-center">
+                        <!--                        <h5 class="timeline-title">1- Initial Meeting/Evaluation</h5>-->
+                        <p>
+                            <!--                                <small class="text-muted"><i class="glyphicon glyphicon-pencil"></i> 11 hours ago via-->
+                            <!--                                    Twitter-->
+                            <!--                                </small>-->
+                        </p>
+                    </div>
+                    <div class="timeline-body text-center">
+                        <br>
+
+                        <h4 id="homeTL1">
+                            1- We meet and chat
+                        </h4>
+
+                        </br>
+                        <!--                        <h4 class="text-center"><span class="glyphicon glyphicon-ok"> </span> Free!-->
+                        <!--                        </h4>-->
+
+
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge info"><i class="glyphicon glyphicon-hand-right"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <!--                        <h4 class="timeline-title text-center">2- Solution Preparation</h4>-->
+                    </div>
+                    <div class="timeline-body text-center">
+                        </br>
+                        <p>  <h4 id="homeTL2">2- Diving deeper how listening buddy can be helpful for you</h4></p>
+
+                        </br>
+                        <!--                        <h4 class="text-center"><span class="glyphicon glyphicon-ok"> </span> Free!-->
+                        <!--                        </h4>-->
+                    </div>
+                </div>
+            </li>
+            <li>
+
+                <div class="timeline-badge "><i class="glyphicon glyphicon-hand-left"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <!--                        <h4 class="timeline-title text-center">3- Presentation and Agreement</h4>-->
+                    </div>
+                    <div class="timeline-body text-center">
+                        </br>
+                        <p>
+                        <h4 id="homeTL3">3- And we decide together how to move forward from there</h4>
+                        </p>
+                        </br>
+
+                        <!-- <h4 class="text-center"><span class="glyphicon glyphicon-ok"> </span> <span id="homeTL44">Fixed price! </span>
+                        </h4> -->
+                        <!--                        <hr>-->
+                        <!--                        <div class="btn-group">-->
+                        <!--                            <button type="button" class="btn btn-primary btn-sm dropdown-toggle"-->
+                        <!--                                    data-toggle="dropdown">-->
+                        <!--                                <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>-->
+                        <!--                            </button>-->
+                        <!--                            <ul class="dropdown-menu" role="menu">-->
+                        <!--                                <li><a href="#">Action</a></li>-->
+                        <!--                                <li><a href="#">Another action</a></li>-->
+                        <!--                                <li><a href="#">Something else here</a></li>-->
+                        <!--                                <li class="divider"></li>-->
+                        <!--                                <li><a href="#">Separated link</a></li>-->
+                        <!--                            </ul>-->
+                        <!--                        </div>-->
+                    </div>
+                </div>
+            </li>
+            <!-- <li class="timeline-inverted">
+                <div class="timeline-badge info"><i class="glyphicon glyphicon-hand-right"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                                             <h4 class="timeline-title text-center">4- Implementation/Handover</h4>-->
+                    <!-- </div>
+                    <div class="timeline-body">
+
+
+                        <h4 class="text-center"><br class="text-center" id="homeTL4">You have the control in this
+                            stage;</br></br>
+                        </h4>
+
+
+                        <h4><span class="glyphicon glyphicon-ok"/> <span id="homeTL41">We can assign short/long term experts</span>  </br>
+                            <span class="glyphicon glyphicon-ok"/> <span id="homeTL42">We do project management and guidence</span> </br>
+                            <span class="glyphicon glyphicon-ok"/> <span id="homeTL43">Implement complete solution & handover</span> </br>
+                        </h4>
+
+                        </br>
+                        <h4 class="text-center"><span class="glyphicon glyphicon-ok"> </span> <span id="homeTL45">Custom offer!</span>
+
+                    </div>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+
+
+</h3>
+
+</div>
+</div>
+
+
+<!--<link re="stylesheet" type="text/css" href="..\node_modules\bootstrap\dist\css\font-awesome.css">-->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+</div>
+
+<div ng-include src="'views/contact.html'"></div>
+
+
+<style>
+    .timeline {
+        list-style: none;
+        padding: 20px 0 20px;
+        position: relative;
+    }
+
+    .timeline:before {
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        content: " ";
+        width: 3px;
+        background-color: #eeeeee;
+        left: 50%;
+        margin-left: -1.5px;
+    }
+
+    .timeline > li {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .timeline > li:before,
+    .timeline > li:after {
+        content: " ";
+        display: table;
+    }
+
+    .timeline > li:after {
+        clear: both;
+    }
+
+    .timeline > li:before,
+    .timeline > li:after {
+        content: " ";
+        display: table;
+    }
+
+    .timeline > li:after {
+        clear: both;
+    }
+
+    .timeline > li > .timeline-panel {
+        width: 50%;
+        float: left;
+        border: 1px solid #d4d4d4;
+        border-radius: 2px;
+        padding: 20px;
+        position: relative;
+        -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    }
+
+    .timeline > li.timeline-inverted + li:not(.timeline-inverted),
+    .timeline > li:not(.timeline-inverted) + li.timeline-inverted {
+        margin-top: -60px;
+    }
+
+    .timeline > li:not(.timeline-inverted) {
+        padding-right: 90px;
+    }
+
+    .timeline > li.timeline-inverted {
+        padding-left: 90px;
+    }
+
+    .timeline > li > .timeline-panel:before {
+        position: absolute;
+        top: 26px;
+        right: -15px;
+        display: inline-block;
+        border-top: 15px solid transparent;
+        border-left: 15px solid #ccc;
+        border-right: 0 solid #ccc;
+        border-bottom: 15px solid transparent;
+        content: " ";
+    }
+
+    .timeline > li > .timeline-panel:after {
+        position: absolute;
+        top: 27px;
+        right: -14px;
+        display: inline-block;
+        border-top: 14px solid transparent;
+        border-left: 14px solid #fff;
+        border-right: 0 solid #fff;
+        border-bottom: 14px solid transparent;
+        content: " ";
+    }
+
+    .timeline > li > .timeline-badge {
+        color: #fff;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+        text-align: center;
+        position: absolute;
+        top: 16px;
+        left: 50%;
+        margin-left: -25px;
+        background-color: #999999;
+        z-index: 100;
+        border-top-right-radius: 50%;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+    }
+
+    .timeline > li.timeline-inverted > .timeline-panel {
+        float: right;
+    }
+
+    .timeline > li.timeline-inverted > .timeline-panel:before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -15px;
+        right: auto;
+    }
+
+    .timeline > li.timeline-inverted > .timeline-panel:after {
+        border-left-width: 0;
+        border-right-width: 14px;
+        left: -14px;
+        right: auto;
+    }
+
+    .timeline-badge.primary {
+        background-color: #2e6da4 !important;
+    }
+
+    .timeline-badge.success {
+        background-color: #3f903f !important;
+    }
+
+    .timeline-badge.warning {
+        background-color: #f0ad4e !important;
+    }
+
+    .timeline-badge.danger {
+        background-color: #d9534f !important;
+    }
+
+    .timeline-badge.info {
+        background-color: #5bc0de !important;
+    }
+
+    .timeline-title {
+        margin-top: 0;
+        color: inherit;
+    }
+
+    .timeline-body > p,
+    .timeline-body > ul {
+        margin-bottom: 0;
+    }
+
+    .timeline-body > p + p {
+        margin-top: 5px;
+    }
+
+
+    body {
+        margin-top: 20px;
+    }
+
+    .single-team .inner {
+        text-align: center;
+        margin-bottom: 35px;
+        border: 1px solid #e5eaf0;
+        padding: 5px 5px 0px;
+    }
+
+    .single-team .inner .team-img {
+        position: relative;
+    }
+
+    .single-team .inner .team-img img {
+        width: 100%;
+    }
+
+    .single-team .inner .team-img::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+
+    .single-team .inner .team-img:hover::after {
+        opacity: 0.4;
+    }
+
+    .single-team .inner .team-content {
+        padding: 22px 0px 0px;
+    }
+
+    .single-team .inner .team-content h4 {
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .single-team .inner .team-content h5 {
+        font-weight: 300;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        color: #7d91aa;
+    }
+
+    .single-team .inner .team-content a {
+        display: inline-block;
+        padding: 2px;
+        margin: 0 3px;
+        font-size: 16px;
+    }
+
+    .team-social {
+        background: #f3f6fa;
+        width: 50%;
+        padding-top: 4px;
+        margin: auto;
+        border-radius: 15px 15px 0px 0px;
+        margin-top: 17px;
+    }
+
+
+</style>
+
+
+
+
